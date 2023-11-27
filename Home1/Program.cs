@@ -70,7 +70,6 @@ public class Program
             Console.Write($"|{VARIABLE.Fullname} бабушка - {VARIABLE.Spouse.Fullname} дедушка |");
         }
 
-        Console.WriteLine();
         Console.WriteLine("---------------------");
         Console.WriteLine($"|{member1.Father.Fullname} папа - {member1.Mother.Fullname} мама|");
         Console.WriteLine("---------------------");
@@ -82,7 +81,6 @@ public class Program
         {
             Console.Write($"|{VARIABLE.Fullname} бабушка жены - {VARIABLE.Spouse.Fullname} дедушка жены|");
         }
-        Console.WriteLine();
         
     }
 }
