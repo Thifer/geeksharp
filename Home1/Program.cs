@@ -65,21 +65,22 @@ public class Program
         member8.Father = member17;
         member8.Mother = member18;
 
-        foreach (var VARIABLE in member1.GetGrandMother())
+        foreach (var variable in member1.GetGrandMother())
         {
-            Console.Write($"|{VARIABLE.Fullname} бабушка - {VARIABLE.Spouse.Fullname} дедушка |");
+            Console.Write($"|{variable?.Fullname} бабушка - {variable?.Spouse?.Fullname} дедушка |");
         }
 
+        Console.WriteLine();
         Console.WriteLine("---------------------");
-        Console.WriteLine($"|{member1.Father.Fullname} папа - {member1.Mother.Fullname} мама|");
+        Console.WriteLine($"|{member1.Father?.Fullname} папа - {member1.Mother?.Fullname} мама|");
         Console.WriteLine("---------------------");
-        Console.WriteLine($"|{member1.Fullname} главгад - {member1.Spouse.Fullname} жена|");
+        Console.WriteLine($"|{member1.Fullname} главгад - {member1.Spouse?.Fullname} жена|");
         Console.WriteLine("---------------------");
-        Console.WriteLine($"|{member1.Spouse.Father.Fullname} папа жены - {member1.Spouse.Mother.Fullname} мама жены|");
+        Console.WriteLine($"|{member1.Spouse?.Father?.Fullname} папа жены - {member1.Spouse?.Mother?.Fullname} мама жены|");
         Console.WriteLine("---------------------");
-        foreach (var VARIABLE in member1.Spouse.GetGrandMother())
+        foreach (var variable in member1.Spouse?.GetGrandMother())
         {
-            Console.Write($"|{VARIABLE.Fullname} бабушка жены - {VARIABLE.Spouse.Fullname} дедушка жены|");
+            Console.Write($"|{variable?.Fullname} бабушка жены - {variable?.Spouse.Fullname} дедушка жены|");
         }
         
     }
