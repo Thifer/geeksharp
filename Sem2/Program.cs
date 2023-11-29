@@ -2,16 +2,16 @@
 
 using Sem2;
 
-Collection<string> collection = new Collection<string>(10);
+var collection = new Collection<string>(10);
 
 collection[0] = "new string";
 collection[1] = "new string1";
 
 
 Bits bit = new(100);
-Bits bitInt = new Bits((int)10);
-Bits bitByte = new Bits((byte)11);
-Bits bitLong = new Bits((long)12);
+var bitInt = new Bits(10);
+var bitByte = new Bits((byte)11);
+var bitLong = new Bits((long)12);
 
 long _long = bitLong;
 int _int = bitInt;
@@ -24,4 +24,3 @@ Console.WriteLine(_int.GetType());
 Console.WriteLine(_int);
 Console.WriteLine(_byte.GetType());
 Console.WriteLine(_byte);
-

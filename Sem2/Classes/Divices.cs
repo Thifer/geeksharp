@@ -1,11 +1,9 @@
-using System.Security.Cryptography;
-
 namespace Sem2;
 
-public class Divice: IControlable
+public class Divice : IControlable
 {
-    public bool isOn { get; private set; } = false;
-    
+    public bool isOn { get; private set; }
+
     public void On()
     {
         isOn = true;
@@ -19,8 +17,6 @@ public class Divice: IControlable
 
 public class Devices
 {
-    public List<IControlable> DevicesList { get; set; }
-
     public Devices()
     {
         DevicesList = new List<IControlable>();
@@ -34,6 +30,8 @@ public class Devices
         DevicesList.Add(new Divice());
     }
 
+    public List<IControlable> DevicesList { get; set; }
+
     public void TurnOnOff(Bits bits)
     {
         //00000001
@@ -46,17 +44,13 @@ public class Devices
         //00001000
         //00001001
         //00001010
-        
-        
+
+
         for (byte i = 0; i < 8; i++)
-        {
             if (DevicesList[i].isOn && !bits[i])
                 DevicesList[i].On();
             else if (!DevicesList[i].isOn && bits[i])
                 DevicesList[i].Off();
-        }
-        
-        
     }
 
     public override string ToString()

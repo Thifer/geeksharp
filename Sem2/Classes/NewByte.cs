@@ -1,6 +1,6 @@
 namespace Sem2;
 
-public class NewByte: IBit
+public class NewByte : IBit
 {
     public bool GetBitByIndex(byte index)
     {

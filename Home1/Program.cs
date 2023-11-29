@@ -2,25 +2,25 @@
 
 using Home1;
 
-FamilyMember member1 = new FamilyMember("Name 1", Gender.Men);
-FamilyMember? member2 = new FamilyMember("Name 2", Gender.Women);
-FamilyMember? member3 = new FamilyMember("Name 3", Gender.Men);
-FamilyMember? member4 = new FamilyMember("Name 4", Gender.Women);
-FamilyMember? member5 = new FamilyMember("Name 5", Gender.Men);
-FamilyMember? member6 = new FamilyMember("Name 6", Gender.Women);
-FamilyMember? member7 = new FamilyMember("Name 7", Gender.Men);
-FamilyMember? member8 = new FamilyMember("Name 8", Gender.Women);
-FamilyMember? member9 = new FamilyMember("Name 9", Gender.Men);
-FamilyMember? member10 = new FamilyMember("Name 10", Gender.Women);
-FamilyMember? member11 = new FamilyMember("Name 11", Gender.Men);
-FamilyMember? member12 = new FamilyMember("Name 12", Gender.Women);
-FamilyMember? member13 = new FamilyMember("Name 13", Gender.Men);
-FamilyMember? member14 = new FamilyMember("Name 14", Gender.Women);
-FamilyMember? member15 = new FamilyMember("Name 15", Gender.Men);
-FamilyMember? member16 = new FamilyMember("Name 16", Gender.Women);
-FamilyMember? member17 = new FamilyMember("Name 17", Gender.Men);
-FamilyMember? member18 = new FamilyMember("Name 18", Gender.Women);
-List<FamilyMember?> familyMembers = new List<FamilyMember?>
+var member1 = new FamilyMember("Name 1", Gender.Men);
+var member2 = new FamilyMember("Name 2", Gender.Women);
+var member3 = new FamilyMember("Name 3", Gender.Men);
+var member4 = new FamilyMember("Name 4", Gender.Women);
+var member5 = new FamilyMember("Name 5", Gender.Men);
+var member6 = new FamilyMember("Name 6", Gender.Women);
+var member7 = new FamilyMember("Name 7", Gender.Men);
+var member8 = new FamilyMember("Name 8", Gender.Women);
+var member9 = new FamilyMember("Name 9", Gender.Men);
+var member10 = new FamilyMember("Name 10", Gender.Women);
+var member11 = new FamilyMember("Name 11", Gender.Men);
+var member12 = new FamilyMember("Name 12", Gender.Women);
+var member13 = new FamilyMember("Name 13", Gender.Men);
+var member14 = new FamilyMember("Name 14", Gender.Women);
+var member15 = new FamilyMember("Name 15", Gender.Men);
+var member16 = new FamilyMember("Name 16", Gender.Women);
+var member17 = new FamilyMember("Name 17", Gender.Men);
+var member18 = new FamilyMember("Name 18", Gender.Women);
+var familyMembers = new List<FamilyMember?>
 {
     member1,
     member2,
@@ -63,9 +63,7 @@ member8.Father = member17;
 member8.Mother = member18;
 
 foreach (var variable in member1.GetGrandMother())
-{
     Console.Write($"|{variable?.Fullname} бабушка - {variable?.Spouse?.Fullname} дедушка |");
-}
 
 Console.WriteLine();
 Console.WriteLine("---------------------");
@@ -76,6 +74,4 @@ Console.WriteLine("---------------------");
 Console.WriteLine($"|{member1.Spouse?.Father?.Fullname} папа жены - {member1.Spouse?.Mother?.Fullname} мама жены|");
 Console.WriteLine("---------------------");
 foreach (var variable in member1.Spouse?.GetGrandMother())
-{
     Console.Write($"|{variable?.Fullname} бабушка жены - {variable?.Spouse.Fullname} дедушка жены|");
-}
