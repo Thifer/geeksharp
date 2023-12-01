@@ -17,7 +17,7 @@ int[,] labirynth1 = new int[,]
 
 
 
-Console.WriteLine(FindPath(1, 1));
+Console.WriteLine($"Количество выходов { FindPath(1, 1)}");
 
 
 int FindPath(int i, int j)
