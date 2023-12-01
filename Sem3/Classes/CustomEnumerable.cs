@@ -4,8 +4,8 @@ namespace Sem3;
 
 public class CustomEnumerable : IEnumerable<int>
 {
-    private int[] _arr;
-    public IEnumerator<int> GetEnumerator() => new CustomEnumerator();
+    private CustomEnumerator _enumerator = new CustomEnumerator();
+    public IEnumerator<int> GetEnumerator() => _enumerator;
 
     IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     
