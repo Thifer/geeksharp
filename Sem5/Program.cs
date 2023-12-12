@@ -19,7 +19,7 @@ calc.Res += CalcGotRes2;
 while (true)
 {
     Console.WriteLine("Выберите действие(+-*/), либо ничего для выхода");
-    switch (Console.ReadLine())
+    switch (Console.ReadLine().ToLower())
     {
         case "+":
             newcalc(calc.Sum);
@@ -34,7 +34,9 @@ while (true)
             newcalc(calc.Div);
             break;
         case "":
-            return; 
+            return;
+        case "q":
+            return;
     }
 }
 
