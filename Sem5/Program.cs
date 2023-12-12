@@ -24,14 +24,9 @@ static void newcalc(Action<double> action)
     }
 }
 
-Console.WriteLine(double.MaxValue);
 Console.WriteLine("Введите первое число");
 var calc = new Calc(double.Parse(Console.ReadLine()));
-
-
 calc.Res += CalcGotRes2;
-calc.Sub(double.MaxValue);
-calc.Sub(double.MaxValue);
 while (true)
 {
     Console.WriteLine("Выберите действие(+-*/), либо ничего для выхода");

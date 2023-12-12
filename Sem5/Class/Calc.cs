@@ -20,7 +20,6 @@ public enum CalcActions
 public class Calc : ICalc
 {
     private readonly Stack<CalcActionLog> _actionLogs = new();
-
     private readonly Stack<double> _results = new();
 
     public Calc(double value = 0)
@@ -31,19 +30,17 @@ public class Calc : ICalc
 
     public double GetRes { get; private set; }
 
-
     public void Sum(int a)
     {
         Sum((double)a);
     }
-    
-    
+
     public void Sum(double a)
     {
         if (GetRes + a > double.MaxValue)
         {
             _actionLogs.Push(new CalcActionLog(CalcActions.Sum, a));
-            throw new CalculateOperationCauseOverflowException("Переполнение",_actionLogs);
+            throw new CalculateOperationCauseOverflowException("Переполнение", _actionLogs);
         }
 
         _results.Push(GetRes);
@@ -55,19 +52,19 @@ public class Calc : ICalc
     {
         Div((double)a);
     }
-    
+
     public void Div(double a)
     {
         if (a == 0)
         {
             _actionLogs.Push(new CalcActionLog(CalcActions.Div, a));
-            throw new CalculatorDivideByZeroException("Деление на 0",_actionLogs);
+            throw new CalculatorDivideByZeroException("Деление на 0", _actionLogs);
         }
 
         if (GetRes / a > double.MaxValue)
         {
             _actionLogs.Push(new CalcActionLog(CalcActions.Sum, a));
-            throw new CalculateOperationCauseOverflowException("Переполнение",_actionLogs);
+            throw new CalculateOperationCauseOverflowException("Переполнение", _actionLogs);
         }
 
         _results.Push(GetRes);
@@ -75,24 +72,24 @@ public class Calc : ICalc
         RaiseEvent();
     }
 
-    
     public void Mul(int a)
     {
         Mul((double)a);
     }
+
     public void Mul(double a)
     {
         if (GetRes * a > double.MaxValue)
         {
             _actionLogs.Push(new CalcActionLog(CalcActions.Mul, a));
-            throw new CalculateOperationCauseOverflowException("Переполнение",_actionLogs);
+            throw new CalculateOperationCauseOverflowException("Переполнение", _actionLogs);
         }
 
         _results.Push(GetRes);
         GetRes *= a;
         RaiseEvent();
     }
-    
+
     public void Sub(int a)
     {
         Sub((double)a);
@@ -103,7 +100,7 @@ public class Calc : ICalc
         if (GetRes - a < double.MinValue)
         {
             _actionLogs.Push(new CalcActionLog(CalcActions.Sub, a));
-            throw new CalculateOperationCauseOverflowException("Слишком в минус",_actionLogs);
+            throw new CalculateOperationCauseOverflowException("Слишком в минус", _actionLogs);
         }
 
         _results.Push(GetRes);
@@ -123,5 +120,4 @@ public class Calc : ICalc
     {
         Res?.Invoke(this, EventArgs.Empty);
     }
-    
 }
