@@ -2,20 +2,36 @@
 
 using Sem5.Class;
 
-static void CalcGotRes2(object sender,EventArgs args)
+static void CalcGotRes2(object sender, EventArgs args)
 {
-    Console.WriteLine($"resul = {((Calc)sender).GetRes}");
+    Console.WriteLine($"resul = {((Calc)sender).GetRes:0000.00}");
 }
 
 static void newcalc(Action<double> action)
 {
     Console.WriteLine("Введите следущие число");
-    action(double.Parse(Console.ReadLine()));
+    try
+    {
+        action.Invoke(double.Parse(Console.ReadLine()));
+    }
+    catch (CalculatorDivideByZeroException e)
+    {
+        Console.WriteLine(e);
+    }
+    catch (CalculateOperationCauseOverflowException e)
+    {
+        Console.WriteLine(e);
+    }
 }
 
+Console.WriteLine(double.MaxValue);
 Console.WriteLine("Введите первое число");
-Calc calc = new Calc(double.Parse(Console.ReadLine()));
+var calc = new Calc(double.Parse(Console.ReadLine()));
+
+
 calc.Res += CalcGotRes2;
+calc.Sub(double.MaxValue);
+calc.Sub(double.MaxValue);
 while (true)
 {
     Console.WriteLine("Выберите действие(+-*/), либо ничего для выхода");
@@ -39,5 +55,3 @@ while (true)
             return;
     }
 }
-
-

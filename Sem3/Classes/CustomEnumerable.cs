@@ -4,9 +4,15 @@ namespace Sem3;
 
 public class CustomEnumerable : IEnumerable<int>
 {
-    private CustomEnumerator _enumerator = new CustomEnumerator();
-    public IEnumerator<int> GetEnumerator() => _enumerator;
+    private readonly CustomEnumerator _enumerator = new();
 
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-    
+    public IEnumerator<int> GetEnumerator()
+    {
+        return _enumerator;
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
 }

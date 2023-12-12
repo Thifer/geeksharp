@@ -8,6 +8,6 @@ public interface ICalc
     void Sub(double a);
 
     void Cancel();
-    
+
     event EventHandler<EventArgs> Res;
 }

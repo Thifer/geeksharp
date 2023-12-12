@@ -50,15 +50,33 @@ public class Bits : IBit
             Value &= (byte)~(1 << index);
     }
 
-    public static implicit operator long(Bits bits) => bits.Value;
+    public static implicit operator long(Bits bits)
+    {
+        return bits.Value;
+    }
 
-    public static explicit operator Bits(long value) => new(value);
+    public static explicit operator Bits(long value)
+    {
+        return new Bits(value);
+    }
 
-    public static implicit operator byte(Bits bits) => (byte)bits.Value;
+    public static implicit operator byte(Bits bits)
+    {
+        return (byte)bits.Value;
+    }
 
-    public static explicit operator Bits(byte value) => new(value);
+    public static explicit operator Bits(byte value)
+    {
+        return new Bits(value);
+    }
 
-    public static implicit operator int(Bits bits) => (int)bits.Value;
+    public static implicit operator int(Bits bits)
+    {
+        return (int)bits.Value;
+    }
 
-    public static explicit operator Bits(int value) => new(value);
+    public static explicit operator Bits(int value)
+    {
+        return new Bits(value);
+    }
 }
